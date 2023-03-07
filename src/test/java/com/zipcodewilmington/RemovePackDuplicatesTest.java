@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RemovePackDuplicatesTest {
-
-
     @Test
     public void testRemovePackDuplicates1() {
         String[] array = {"a", "a", "a", "b", "c", "c", "a", "a", "d"};
@@ -32,6 +30,4 @@ public class RemovePackDuplicatesTest {
         String[] actual = StringArrayUtils.packConsecutiveDuplicates(array);
         Assert.assertEquals(expected, actual);
     }
-
-
 }
