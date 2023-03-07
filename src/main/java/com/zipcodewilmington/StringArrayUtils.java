@@ -89,13 +89,15 @@ public class StringArrayUtils {
     public static boolean isPangramic(String[] array) {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         for(String arr : array){
-            String[] s = arr.toLowerCase().split("");
-            for(String c : s){
-                if(alphabet.contains(c)){
-                    alphabet = alphabet.replace(c,"");
+            String[] words = arr.toLowerCase().split("");
+            for(String character : words){
+                if(alphabet.contains(character)){
+                    //remove char from alphabet
+                    alphabet = alphabet.replace(character,"");
                 }
             }
         }
+        //if all characters were used
         if(alphabet.length()==0){
             return true;
         }
@@ -168,9 +170,7 @@ public class StringArrayUtils {
                 cur = array[i];
                 sb.append(array[i]);
             }
-
         }
-        System.out.println(sb);
         return sb.toString().split(",");
     }
 }
