@@ -26,14 +26,10 @@ public class IsPangramicTest {
         Assert.assertTrue(outcome);
     }
 
-
     @Test
     public void testIsPangramic4() {
         String[] array = {"a", "b", "c", "d"};
         boolean outcome = StringArrayUtils.isPangramic(array);
         Assert.assertFalse(outcome);
     }
-
-
-
 }

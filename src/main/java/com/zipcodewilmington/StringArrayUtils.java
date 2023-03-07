@@ -25,7 +25,7 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        return array[array.length-1];
     }
 
     /**
@@ -33,7 +33,7 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        return array[array.length-2];
     }
 
     /**
@@ -42,6 +42,11 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for(int i = 0; i < array.length; i++){
+            if(array[i].equalsIgnoreCase(value)){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -50,7 +55,13 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        String[] s = new String[array.length];
+        int j = 0;
+        for(int i = array.length-1; i >= 0 ; i--){
+            s[j] = array[i];
+            j++;
+        }
+        return s;
     }
 
     /**
@@ -58,7 +69,13 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        return false;
+        String[] rev = reverse(array);
+        for(int i = 0 ; i < array.length; i++){
+            if(!array[i].equalsIgnoreCase(rev[i])){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -66,7 +83,12 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        for(char c = 'a'; c <= 'z'; c++){
+            if(!contains(array,String.valueOf(c))){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
