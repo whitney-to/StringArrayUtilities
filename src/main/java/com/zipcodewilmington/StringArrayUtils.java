@@ -1,9 +1,5 @@
 package com.zipcodewilmington;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
-
 /**
  * Created by leon on 1/29/18.
  */
@@ -97,7 +93,7 @@ public class StringArrayUtils {
                 }
             }
         }
-        //if all characters were used
+        //if all characters were used, length will be 0
         if(alphabet.length()==0){
             return true;
         }
@@ -125,16 +121,13 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        int numOcrn = getNumberOfOccurrences(array,valueToRemove);
-        String[] s = new String[array.length-numOcrn];
-        int index = 0;
+        StringBuilder sb = new StringBuilder("");
         for(String arr : array){
             if(!arr.equals(valueToRemove)){
-                s[index] = arr;
-                index++;
+                sb.append(arr+",");
             }
         }
-        return s;
+        return sb.toString().split(",");
     }
 
     /**
@@ -160,8 +153,8 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
         StringBuilder sb = new StringBuilder("");
-        sb.append(array[0]);
-        String cur = array[0];
+        sb.append(array[0]); // append first element
+        String cur = array[0]; // first element as current item to be compared to
         for(int i  = 1; i < array.length; i++){
             if(array[i].equalsIgnoreCase(cur)){
                 sb.append(array[i]);
