@@ -43,7 +43,7 @@ public class StringArrayUtils {
      */ // TODO
     public static boolean contains(String[] array, String value) {
         for(int i = 0; i < array.length; i++){
-            if(array[i].equalsIgnoreCase(value)){
+            if(array[i].equals(value)){
                 return true;
             }
         }
